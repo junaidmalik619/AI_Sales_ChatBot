@@ -1,0 +1,45 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - sales_query
+
+responses:
+  utter_sales_query:
+  - text: "Processing your sales query. Please wait."
+
+  utter_cheer_up:
+  - text: "Here is something to lighten the mood:"
+    image: "https://some-link-to-image.jpg"
+
+  utter_did_that_help:
+  - text: "Was that helpful?"
+
+  utter_happy:
+  - text: "Great, continue!"
+
+  utter_goodbye:
+  - text: "Goodbye"
+
+  utter_iamabot:
+  - text: "I am an AI bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_process_sales_query
+
+slots:
+  time_period:
+    type: text
+    influence_conversation: true
+
+  prediction_period:
+    type: text
+    influence_conversation: true
